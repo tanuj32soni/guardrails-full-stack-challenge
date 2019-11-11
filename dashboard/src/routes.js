@@ -4,12 +4,12 @@ import {
   Switch,
   Redirect,
 } from 'react-router-dom';
-import App from './App';
+import Dashboard from './modules/dashboard/dashboard.routes';
 
 const routes = (
   <Switch>
-    <Route path="/" component={App} />
-    <Redirect from="*" to="/" />
+    <Route path="/dashboard" component={Dashboard} />
+    <Redirect from="*" to="/dashboard" />
   </Switch>
 );
 

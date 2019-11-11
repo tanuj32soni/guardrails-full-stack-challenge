@@ -1,15 +1,13 @@
 import React from 'react';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
-import Desktop from '@material-ui/icons/DesktopMac';
 
-const App = () => (
-  <Box display="flex">
-    <Desktop fontSize="large" /> 
+const ScanResultList = () => (
+  <Box display="flex" alignContent="center">
     <Typography variant="h5">
-      React SPA
+      Scan Results
     </Typography>
   </Box>
 );
 
-export default App;
+export default ScanResultList;
