@@ -6,6 +6,7 @@ import { configureStore, history } from './store/configureStore';
 import routes from './routes';
 import runSaga from './sagas';
 import * as serviceWorker from './serviceWorker';
+import AppContainer from './containers/AppContainer';
 
 const store = configureStore();
 runSaga();
@@ -13,7 +14,9 @@ runSaga();
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      {routes}
+      <AppContainer>
+        {routes}
+      </AppContainer>
     </ConnectedRouter>
   </Provider>,
   document.getElementById('root'),
