@@ -1,0 +1,8 @@
+{
+  "name": "scan-recorder-backend",
+  "version": "0.1.0",
+  "description": "backend for scan-recorder portal",
+  "main": "server.js",
+  "license": "MIT",
+  "private": true
+}
