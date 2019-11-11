@@ -4,8 +4,15 @@ import Container from '@material-ui/core/Container';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import withStyles from "@material-ui/core/styles/withStyles";;
 
-const AppContainer = ({ children }) => (
+const styles = () => ({
+  container: {
+    minHeight: 'calc(100% - 64px)',
+  },
+});
+
+const AppContainer = ({ children, classes }) => (
   <Fragment>
     <AppBar position="static">
       <Toolbar>
@@ -14,14 +21,15 @@ const AppContainer = ({ children }) => (
         </Typography>
       </Toolbar>
     </AppBar>
-    <Container>
+    <Container className={classes.container}>
       {children}
     </Container>
   </Fragment>
 );
 
 AppContainer.propTypes = {
+  classes: PropTypes.object,
   children: PropTypes.node.isRequired,
 };
 
-export default AppContainer;
+export default withStyles(styles)(AppContainer);
