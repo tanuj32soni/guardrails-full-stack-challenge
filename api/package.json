@@ -4,8 +4,11 @@
   "description": "backend for scan-recorder portal",
   "main": "server.js",
   "scripts": {
-    "prestart": "eslint .",
+    "prestart": "eslint . --fix",
     "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
   },
   "devDependencies": {
     "eslint": "^6.6.0",
