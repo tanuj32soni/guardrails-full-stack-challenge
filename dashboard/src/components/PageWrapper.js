@@ -1,10 +1,14 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import PageTitle from './PageTitle';
+import Box from '@material-ui/core/Box';
 
-const PageWrapper = ({ children, title, padded }) => (
+const PageWrapper = ({ children, title, padded, action }) => (
   <Fragment>
-    <PageTitle title={title} padded={padded} />
+    <Box display="flex" justifyContent="space-between">
+      <PageTitle title={title} padded={padded} />
+      {action}
+    </Box>
     {children}
   </Fragment>
 );
