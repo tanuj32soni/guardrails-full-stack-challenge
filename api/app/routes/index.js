@@ -1,9 +1,7 @@
-const Responder = require('../../lib/expressResponder')
+const initReportRoutes = require('./report')
 
 function initRoutes (app) {
-  app.get('/', (req, res) => {
-    Responder.success(res, 'Server Started')
-  })
+  app.use('/reports', initReportRoutes())
 }
 
 module.exports = initRoutes
