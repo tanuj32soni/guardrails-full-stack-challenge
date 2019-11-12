@@ -3,8 +3,6 @@ import { takeEvery, put } from 'redux-saga/effects';
 import { CALL_API } from '../actions/api.actions';
 import config from '../config';
 
-console.log(config.getProperties())
-
 const getHeaders = () => {
   const headers = {
     Accept: 'application/json',

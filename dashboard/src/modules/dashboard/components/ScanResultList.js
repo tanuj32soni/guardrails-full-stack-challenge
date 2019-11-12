@@ -2,15 +2,15 @@ import React from 'react';
 import ResourceList from '../../../components/ResourceList';
 
 const statusToTimeKey = {
-  IN_PROGRESS: 'scanningAt',
-  QUEUED: 'queuedAt',
-  SUCCESS: 'finishedAt',
-  FAILURE: 'finishedAt',
+  "IN-PROGRESS": 'scanning_at',
+  QUEUED: 'queued_at',
+  SUCCESS: 'finished_at',
+  FAILURE: 'finished_at',
 };
 
 const headings = [
   {
-    key: 'repositoryName',
+    key: 'repository_name',
     label: 'Repository',
   },
   {
