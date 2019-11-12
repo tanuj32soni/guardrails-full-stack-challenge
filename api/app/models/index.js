@@ -1,4 +1,7 @@
+require('dotenv').config()
+
 const Sequelize = require('sequelize')
+const ReportSchema = require('./reports')
 
 const dbsettings = {
   host: process.env.DB_HOST,
@@ -21,6 +24,10 @@ const sequelize = new Sequelize(
   dbsettings
 )
 
+const Report = ReportSchema(sequelize)
+
 module.exports = {
-  sequelize
+  Report,
+  sequelize,
+  Sequelize
 }

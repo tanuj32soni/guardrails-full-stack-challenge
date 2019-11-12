@@ -1,0 +1,63 @@
+{
+  "tables": {
+    "reports": {
+      "tableName": "reports",
+      "schema": {
+        "id": {
+          "allowNull": false,
+          "primaryKey": true,
+          "autoIncrement": true,
+          "field": "id",
+          "seqType": "Sequelize.INTEGER"
+        },
+        "status": {
+          "defaultValue": {
+            "value": "QUEUED"
+          },
+          "allowNull": false,
+          "field": "status",
+          "seqType": "Sequelize.ENUM('QUEUED', 'IN-PROGRESS', 'SUCCESS', 'FAILURE')"
+        },
+        "repository_name": {
+          "allowNull": true,
+          "field": "repository_name",
+          "seqType": "Sequelize.STRING"
+        },
+        "findings": {
+          "defaultValue": {
+            "value": "{ \"findings\": [] }"
+          },
+          "allowNull": false,
+          "field": "findings",
+          "seqType": "Sequelize.JSONB"
+        },
+        "queued_at": {
+          "defaultValue": {
+            "internal": true,
+            "value": "Sequelize.Literal"
+          },
+          "allowNull": false,
+          "field": "queued_at",
+          "seqType": "Sequelize.DATE"
+        },
+        "scanning_at": {
+          "allowNull": true,
+          "field": "scanning_at",
+          "seqType": "Sequelize.DATE"
+        },
+        "finished_at": {
+          "allowNull": true,
+          "field": "finished_at",
+          "seqType": "Sequelize.DATE"
+        },
+        "updated_at": {
+          "allowNull": false,
+          "field": "updated_at",
+          "seqType": "Sequelize.DATE"
+        }
+      },
+      "indexes": []
+    }
+  },
+  "revision": 1
+}
