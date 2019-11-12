@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
+import { MuiPickersUtilsProvider } from '@material-ui/pickers';
+import DateFnsUtils from '@date-io/date-fns';
 import { configureStore, history } from './store/configureStore';
 import routes from './routes';
 import runSaga from './sagas';
@@ -12,13 +14,15 @@ const store = configureStore();
 runSaga();
 
 ReactDOM.render(
-  <Provider store={store}>
-    <ConnectedRouter history={history}>
-      <AppContainer>
-        {routes}
-      </AppContainer>
-    </ConnectedRouter>
-  </Provider>,
+  <MuiPickersUtilsProvider utils={DateFnsUtils}>
+    <Provider store={store}>
+      <ConnectedRouter history={history}>
+        <AppContainer>
+          {routes}
+        </AppContainer>
+      </ConnectedRouter>
+    </Provider>
+  </MuiPickersUtilsProvider>,
   document.getElementById('root'),
 );
 

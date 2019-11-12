@@ -2,6 +2,7 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 import PageWrapper from '../../../components/PageWrapper';
 import Link from '../../../components/Link';
+import NewScanForm from '../components/NewScanForm';
 
 const BackLink = (
   <Button variant="outlined">
@@ -11,7 +12,7 @@ const BackLink = (
 
 const NewScan = () => (
   <PageWrapper title="Add New Scan" action={BackLink}>
-    New Scan Page
+    <NewScanForm />
   </PageWrapper>
 );
 
