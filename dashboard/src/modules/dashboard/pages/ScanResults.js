@@ -1,21 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PageWrapper from '../../../components/PageWrapper';
-import { Link as RouterLink } from 'react-router-dom';
-import Link from '../../../components/Form/Link';
 import Button from '@material-ui/core/Button';
 import ScanResultList from '../components/ScanResultList'
 import { fetchScans } from '../actions/scans.actions';
+import PageWrapper from '../../../components/PageWrapper';
+import Link from '../../../components/Link';
 
-const Link1 = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...props} />);
-
-const newScanLink = <Button>
-  <Link
-    text="ADD SCAN"
-    underline="none"
-    to="/dashboard/new"
-    component={Link1} />
-</Button>
+const NewScanLink = (
+  <Button variant="outlined">
+    <Link to="/dashboard/new">ADD NEW SCAN</Link>
+  </Button>
+);
 
 class ScanResults extends Component {
   componentDidMount() {
@@ -25,7 +20,7 @@ class ScanResults extends Component {
   render() {
     const { scans } = this.props;
     return (
-      <PageWrapper title="Scan Results" action={newScanLink}>
+      <PageWrapper title="Scan Results" action={NewScanLink}>
         <ScanResultList data={scans} />
       </PageWrapper>
     );
