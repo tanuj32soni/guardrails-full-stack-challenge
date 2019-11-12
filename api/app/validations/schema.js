@@ -11,4 +11,11 @@ function createScan () {
   })
 }
 
-module.exports = { createScan }
+function listScans () {
+  return Joi.object().keys({
+    page: Joi.number().default(1),
+    count: Joi.number().default(10)
+  })
+}
+
+module.exports = { createScan, listScans }

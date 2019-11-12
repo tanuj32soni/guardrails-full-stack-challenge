@@ -165,6 +165,11 @@ async@~1.0.0:
   resolved "https://registry.yarnpkg.com/async/-/async-1.0.0.tgz#f8fc04ca3a13784ade9e1641af98578cfbd647a9"
   integrity sha1-+PwEyjoTeErenhZBr5hXjPvWR6k=
 
+await-of@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/await-of/-/await-of-1.2.0.tgz#8b391b42f2273dd1d70a02718c7981f42dd03f00"
+  integrity sha512-pesPcWF3AJppaIQERxw6MRRqNSqA+jSOEeNSVXkAO5Cf2io5uiN//FkDoFLZrBRw/M7lOzEs4cQg805t/tRKIw==
+
 balanced-match@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"

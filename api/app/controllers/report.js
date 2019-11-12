@@ -1,3 +1,4 @@
+const { of } = require('await-of')
 const { Report } = require('./../models')
 const validations = require('./../validations/schema')
 const Responder = require('../../lib/expressResponder')
@@ -28,7 +29,37 @@ class ReportController {
   }
 
   static async list (req, res) {
-    Responder.success(res, 'Report History')
+    const schema = validations.listScans()
+    const { error, value } = schema.validate(req.query)
+
+    if (error) {
+      return Responder.operationFailed(res, error)
+    }
+
+    const { page, count } = value
+
+    const offset = (page - 1) * count
+    const limit = offset + count
+
+    const attributes = ['id', 'status', 'repository_name', 'findings', 'queued_at', 'scanning_at', 'finished_at']
+
+    const [[scans, totalScans], dbError] = await of(Promise.all([
+      Report.findAll({ attributes, limit, offset }),
+      Report.count()
+    ]))
+
+    if (dbError) {
+      console.log(dbError) // eslint-disable-line no-console
+      return Responder.operationFailed(res, dbError)
+    }
+
+    Responder.success(res, {
+      scans,
+      page,
+      max_page: Math.ceil(totalScans / count),
+      fetched_transactions: scans.length,
+      total_transactions: totalScans
+    })
   }
 }
 
