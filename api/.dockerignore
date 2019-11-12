@@ -1,0 +1,6 @@
+// dependencies
+node_modules
+
+// generated files
+*.lock
+*-error.log

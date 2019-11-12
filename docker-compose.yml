@@ -1,0 +1,33 @@
+version: "3.1"
+
+services:
+  dashboard:
+    build: dashboard
+    ports:
+      - 3000:3000
+    links:
+      - api
+
+  api:
+    restart: always
+    build: api
+    links:
+      - postgres
+    ports:
+      - 3001:3000
+
+  postgres:
+    image: postgres
+    restart: always
+    ports:
+      - 5432:5432
+    volumes:
+      - "pgdata:/var/lib/postgresql/data"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: guardrails
+
+volumes:
+  pgdata:
+    driver: local
