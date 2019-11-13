@@ -91,6 +91,17 @@ need any extraneous CSS and/or animations. You can use any UI framework you like
 - `docker-compose up`
 - Server should be listening on http://localhost:3000
 
+## API Server
+
+The API server is built with [express.js](https://expressjs.com/). It exposes REST APIs to manage 'Security Scan Result'.
+
+Following are the highlights about the server:
+
+- Uses [Postgres](https://www.postgresql.org/) as Database
+- [Winston Logger](https://github.com/winstonjs/winston)
+- [Sequelize](https://sequelize.org/) to interact with Postgres
+- [sequelize-auto-migrations](https://github.com/flexxnn/sequelize-auto-migrations.git) to generate database migration.
+
 ## Dashboard
 
 The project is bootstrapped with CRA. Below is the list of libraries used to speed up the development.
