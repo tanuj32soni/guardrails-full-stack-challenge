@@ -17,11 +17,15 @@ class ScanResults extends Component {
     this.props.fetchScans();
   }
 
+  onSelectScan = scan => {
+    this.props.history.push(`/dashboard/scans/${scan.id}`);
+  };
+
   render() {
     const { scans } = this.props;
     return (
       <PageWrapper title="Scan Results" action={NewScanLink}>
-        <ScanResultList data={scans} />
+        <ScanResultList data={scans} onSelectScan={this.onSelectScan} />
       </PageWrapper>
     );
   }

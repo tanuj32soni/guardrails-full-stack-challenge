@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ResourceList from '../../../components/ResourceList';
 
 const statusToTimeKey = {
@@ -29,11 +30,18 @@ const headings = [
   },
 ];
 
-const ScanResults = ({ data }) => (
+const ScanResults = ({ data, onSelectScan, ...props }) => (
   <ResourceList
     rowData={data}
     headings={headings}
+    onSelectRow={onSelectScan}
+    {...props}
   />
 );
+
+ScanResults.propTypes = {
+  onSelectRow: PropTypes.func.isRequired,
+  ...ResourceList.propTypes,
+};
 
 export default ScanResults;
