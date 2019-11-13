@@ -1,8 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import PageWrapper from '../../../components/PageWrapper';
 import Link from '../../../components/Link';
 import NewScanForm from '../components/NewScanForm';
+import { createScan } from '../actions/scans.actions';
 
 const BackLink = (
   <Button variant="outlined">
@@ -10,10 +12,17 @@ const BackLink = (
   </Button>
 );
 
-const NewScan = () => (
+const NewScan = ({ createScan }) => (
   <PageWrapper title="Add New Scan" action={BackLink}>
-    <NewScanForm />
+    <NewScanForm onSubmit={createScan} />
   </PageWrapper>
 );
 
-export default NewScan;
+const mapDispatchToProps = {
+  createScan,
+};
+
+export default connect(
+  null,
+  mapDispatchToProps,
+)(NewScan);
