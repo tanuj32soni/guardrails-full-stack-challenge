@@ -1,7 +1,7 @@
 import {
-  FETCH_SCAN_REQUEST,
-  FETCH_SCAN_SUCCESS,
-  FETCH_SCAN_FAILED,
+  FETCH_SCANS_REQUEST,
+  FETCH_SCANS_SUCCESS,
+  FETCH_SCANS_FAILED,
 } from '../actions/scans.actions';
 
 const initialState = {
@@ -18,13 +18,13 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_SCAN_REQUEST: 
+    case FETCH_SCANS_REQUEST: 
       return {
         ...state,
         loading: true,
       };
 
-    case FETCH_SCAN_SUCCESS:
+    case FETCH_SCANS_SUCCESS:
       return {
         ...state,
         loading: false,
@@ -32,7 +32,7 @@ export default (state = initialState, action) => {
         data: action.data,
       };
 
-    case FETCH_SCAN_FAILED:
+    case FETCH_SCANS_FAILED:
       return {
         ...state,
         loading: false,
