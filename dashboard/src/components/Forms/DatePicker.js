@@ -12,6 +12,7 @@ const renderDatePicker = (
     minDate={minDate}
     ampm={false}
     label={label}
+    format="yyyy/MM/dd HH:mm"
     errorText={touched && error} />
 };
 
