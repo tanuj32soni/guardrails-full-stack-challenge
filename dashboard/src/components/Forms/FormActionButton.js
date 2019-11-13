@@ -3,11 +3,7 @@ import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 
 const FormActionButton = ({ buttonText, pristine, submitting, ...props }) => (
-  <Button
-    variant=""
-    disabled={pristine || submitting}
-    {...props}
-  >
+  <Button disabled={pristine || submitting} {...props}>
     {buttonText}
   </Button>
 );
