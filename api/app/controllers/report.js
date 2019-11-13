@@ -39,7 +39,7 @@ class ReportController {
     const { page, count } = value
 
     const offset = (page - 1) * count
-    const limit = offset + count
+    const limit = count
 
     const attributes = ['id', 'status', 'repository_name', 'findings', 'queued_at', 'scanning_at', 'finished_at']
 
