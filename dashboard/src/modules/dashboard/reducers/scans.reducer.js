@@ -7,8 +7,10 @@ import {
 const initialState = {
   data: {
     scans: [],
-    page: 0,
+    page: 1,
     max_page: 0,
+    total_transactions: 0,
+    fetched_transactions: 10,
   },
   loading: false,
   error: null,

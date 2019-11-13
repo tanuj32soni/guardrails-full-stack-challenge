@@ -14,7 +14,8 @@ const NewScanLink = (
 
 class ScanResults extends Component {
   componentDidMount() {
-    this.props.fetchScans();
+    const { fetchScans, page, rowsPerPage } = this.props;
+    fetchScans(page, rowsPerPage);
   }
 
   onSelectScan = scan => {
@@ -22,10 +23,15 @@ class ScanResults extends Component {
   };
 
   render() {
-    const { scans } = this.props;
+    const { scans, total, fetchScans } = this.props;
     return (
       <PageWrapper title="Scan Results" action={NewScanLink}>
-        <ScanResultList data={scans} onSelectScan={this.onSelectScan} />
+        <ScanResultList
+          data={scans}
+          total={total}
+          fetchScans={fetchScans}
+          onSelectScan={this.onSelectScan}
+        />
       </PageWrapper>
     );
   }
@@ -36,6 +42,8 @@ const mapStateToProps = state => {
     scans: state.dashboard.scans.data.scans,
     page: state.dashboard.scans.data.page,
     maxPage: state.dashboard.scans.data.max_page,
+    total: state.dashboard.scans.data.total_transactions,
+    rowsPerPage: state.dashboard.scans.data.fetched_transactions,
   }
 };
 
