@@ -79,3 +79,47 @@ need any extraneous CSS and/or animations. You can use any UI framework you like
 
 
 # Solution
+
+## Prerequisites
+
+- [Docker](https://www.docker.com/)
+- [Docker compose](https://docs.docker.com/compose/)
+
+## How to run application
+
+- cd into `/project/root/path`
+- `docker-compose up`
+- Server should be listening on http://localhost:3000
+
+## Dashboard
+
+The project is bootstrapped with CRA. Below is the list of libraries used to speed up the development.
+The directory structure of the project is module oriented. below section describes the same
+
+```
+/src
+  /actions            --|
+  /components           |
+  /containers           | Components used commonly by application
+  /reducers             |
+  /saga               --|
+  /modules
+    /actions          --|
+    /components         |
+    /containers         | Components used by specific module
+    /reducers           |
+    /saga             --|
+    module.routes.js    # router exporting routes for a modules
+  index.js
+  routes.js             # root router
+
+```
+
+### Libraries used
+
+- Redux (State management library enables predictable state manipulation)
+- redux-saga (Middleware to enable side-effect management)
+- redux-form (A component library with rich form related utils, it really boosts the development)
+- material-ui (Designing framework with lots of React Components)
+- convict (Simple configuration management utility)
+
