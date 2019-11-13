@@ -49,7 +49,6 @@ class ReportController {
     ]))
 
     if (dbError) {
-      console.log(dbError) // eslint-disable-line no-console
       return Responder.operationFailed(res, dbError)
     }
 

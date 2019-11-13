@@ -18,4 +18,10 @@ function listScans () {
   })
 }
 
-module.exports = { createScan, listScans }
+function getScan () {
+  return Joi.object().keys({
+    scanId: Joi.number().required()
+  })
+}
+
+module.exports = { createScan, listScans, getScan }
