@@ -8,7 +8,7 @@ export const CREATE_SCAN_REQUEST = 'modules/dashboard/scans/CREATE_SCAN_REQUEST'
 export const CREATE_SCAN_FAILED = 'modules/dashboard/scans/CREATE_SCAN_FAILED';
 export const CREATE_SCAN_SUCCESS = 'modules/dashboard/scans/CREATE_SCAN_SUCCESS';
 
-export const fetchScans = (page, rowsPerPage) => ({
+export const fetchScans = (page = 1, rowsPerPage = 10) => ({
   type: CALL_API,
   types: [
     FETCH_SCANS_REQUEST,

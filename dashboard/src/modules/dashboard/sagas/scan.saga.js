@@ -1,6 +1,6 @@
-import { takeEvery, put } from 'redux-saga/effects';
+import { takeEvery, put, delay } from 'redux-saga/effects';
 import { push } from 'connected-react-router';
-import { CREATE_SCAN_SUCCESS, CREATE_SCAN_FAILED } from '../actions/scans.actions';
+import { CREATE_SCAN_SUCCESS, CREATE_SCAN_FAILED, fetchScans } from '../actions/scans.actions';
 import { showNotification } from '../../../actions/app.actions';
 
 function* createScanFailed(action) {
@@ -9,6 +9,8 @@ function* createScanFailed(action) {
 
 function* createScanSuccess() {
   yield put(showNotification('Scan submitted'));
+  yield put(fetchScans(1, 10));
+  yield delay(500);
   yield put(push('/dashboard'));
 }
 
