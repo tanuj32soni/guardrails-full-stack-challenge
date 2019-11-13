@@ -5,6 +5,7 @@ import ScanResultList from '../components/ScanResultList'
 import { fetchScans } from '../actions/scans.actions';
 import PageWrapper from '../../../components/PageWrapper';
 import Link from '../../../components/Link';
+import Typography from '@material-ui/core/Typography';
 
 const NewScanLink = (
   <Button variant="outlined">
@@ -22,8 +23,22 @@ class ScanResults extends Component {
     this.props.history.push(`/dashboard/scans/${scan.id}`);
   };
 
+  renderError = (error) => (
+    error
+      ? (
+        <Typography
+          color="error"
+          variant="caption"
+          component="div"
+        >
+          {error.reason}
+        </Typography>
+      )
+      : null
+  );
+
   render() {
-    const { scans, total, fetchScans } = this.props;
+    const { scans, total, fetchScans, error } = this.props;
     return (
       <PageWrapper title="Scan Results" action={NewScanLink}>
         <ScanResultList
@@ -31,6 +46,7 @@ class ScanResults extends Component {
           total={total}
           fetchScans={fetchScans}
           onSelectScan={this.onSelectScan}
+          error={this.renderError(error)}
         />
       </PageWrapper>
     );
@@ -44,6 +60,7 @@ const mapStateToProps = state => {
     maxPage: state.dashboard.scans.data.max_page,
     total: state.dashboard.scans.data.total_transactions,
     rowsPerPage: state.dashboard.scans.data.fetched_transactions,
+    error: state.dashboard.scans.error,
   }
 };
 

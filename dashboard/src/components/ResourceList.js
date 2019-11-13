@@ -63,15 +63,16 @@ class ResourceTable extends Component {
   };
 
   compileBody = () => {
-    const { rowData, renderRow, emptyText } = this.props;
+    const { rowData, renderRow, emptyText, error } = this.props;
 
     return (
       <TableBody>
-        {!Boolean(rowData.length) && (
+        {!Boolean(rowData.length) && !Boolean(error) && (
           <Typography variant="h6" align="center">
             {emptyText}
           </Typography>
         )}
+        {error}
         {rowData.map(renderRow || this.renderRow)}
       </TableBody>
     );
