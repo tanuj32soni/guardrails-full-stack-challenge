@@ -31,7 +31,7 @@ const headings = [
   },
 ];
 
-const ScanResults = ({
+const ScanResultList = ({
   data,
   onSelectScan,
   total,
@@ -39,7 +39,7 @@ const ScanResults = ({
   ...props
 }) => {
   const [rowsPerPage, setRowsPerPage] = useState(10);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
 
   const handleChangePage = (e, newPage) => {
     setPage(newPage);
@@ -48,7 +48,7 @@ const ScanResults = ({
 
   const handleChangeRowsPerPage = e => {
     setRowsPerPage(e.target.value);
-    fetchScans(page, e.target.value);
+    fetchScans(page || 1, e.target.value);
   };
 
   return (
@@ -71,9 +71,9 @@ const ScanResults = ({
   );
 };
 
-ScanResults.propTypes = {
-  onSelectRow: PropTypes.func.isRequired,
+ScanResultList.propTypes = {
+  onSelectScan: PropTypes.func.isRequired,
   ...ResourceList.propTypes,
 };
 
-export default ScanResults;
+export default ScanResultList;

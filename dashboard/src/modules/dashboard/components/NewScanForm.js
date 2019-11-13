@@ -117,7 +117,7 @@ const validate = values => {
     }
   });
 
-  if (values['repository_name'] && values['repository_name'].replace(/\s/g, "") == "") {
+  if (values['repository_name'] && values['repository_name'].replace(/\s/g, "") === "") {
     errors['repository_name'] = "Repository name can't be blank";
   }
   if (values['queued_at'] && values['scanning_at'] && (new Date(values['queued_at']) > new Date(values['scanning_at']))) {

@@ -41,8 +41,8 @@ Finding.propTypes = {
     }).isRequired,
   }).isRequired,
   metadata: PropTypes.shape({
-    description: PropTypes.number.isRequired,
-    severity: PropTypes.number.isRequired,
+    description: PropTypes.string.isRequired,
+    severity: PropTypes.string.isRequired,
   }).isRequired,
 };
 
